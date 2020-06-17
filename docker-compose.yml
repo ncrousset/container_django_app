@@ -11,8 +11,11 @@ services:
         command: >
             sh -c "python manage.py runserver 0.0.0.0:8000"
     db:
-        image: postgres
+        image: mysql:5.7
+        ports: 
+            - "3306:3306"
         environment: 
-            MYSQL_DATABASE: "db_app"
-            MYSQL_USER: "postgres"
-            MYSQL_PASSWORD: "123456"
+            MYSQL_DATABASE: db_app
+            MYSQL_USER: root
+            MYSQL_PASSWORD: 123456
+            MYSQL_ROOT_PASSWORD: 123456
